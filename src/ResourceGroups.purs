@@ -20,67 +20,89 @@ import Data.StrMap as StrMap
 import AWS.Request as Request
 import AWS.Request.Types as Types
 
-serviceName = "ResourceGroups" :: String
-
 
 -- | <p>Creates a group with a specified name, description, and resource query.</p>
 createGroup :: forall eff. CreateGroupInput -> Aff (exception :: EXCEPTION | eff) CreateGroupOutput
-createGroup = Request.request serviceName "createGroup" 
+createGroup = Request.request service method  where
+    service = Request.ServiceName "ResourceGroups"
+    method = Request.MethodName "createGroup"
 
 
 -- | <p>Deletes a specified resource group. Deleting a resource group does not delete resources that are members of the group; it only deletes the group structure.</p>
 deleteGroup :: forall eff. DeleteGroupInput -> Aff (exception :: EXCEPTION | eff) DeleteGroupOutput
-deleteGroup = Request.request serviceName "deleteGroup" 
+deleteGroup = Request.request service method  where
+    service = Request.ServiceName "ResourceGroups"
+    method = Request.MethodName "deleteGroup"
 
 
 -- | <p>Returns information about a specified resource group.</p>
 getGroup :: forall eff. GetGroupInput -> Aff (exception :: EXCEPTION | eff) GetGroupOutput
-getGroup = Request.request serviceName "getGroup" 
+getGroup = Request.request service method  where
+    service = Request.ServiceName "ResourceGroups"
+    method = Request.MethodName "getGroup"
 
 
 -- | <p>Returns the resource query associated with the specified resource group.</p>
 getGroupQuery :: forall eff. GetGroupQueryInput -> Aff (exception :: EXCEPTION | eff) GetGroupQueryOutput
-getGroupQuery = Request.request serviceName "getGroupQuery" 
+getGroupQuery = Request.request service method  where
+    service = Request.ServiceName "ResourceGroups"
+    method = Request.MethodName "getGroupQuery"
 
 
 -- | <p>Returns a list of tags that are associated with a resource, specified by an ARN.</p>
 getTags :: forall eff. GetTagsInput -> Aff (exception :: EXCEPTION | eff) GetTagsOutput
-getTags = Request.request serviceName "getTags" 
+getTags = Request.request service method  where
+    service = Request.ServiceName "ResourceGroups"
+    method = Request.MethodName "getTags"
 
 
 -- | <p>Returns a list of ARNs of resources that are members of a specified resource group.</p>
 listGroupResources :: forall eff. ListGroupResourcesInput -> Aff (exception :: EXCEPTION | eff) ListGroupResourcesOutput
-listGroupResources = Request.request serviceName "listGroupResources" 
+listGroupResources = Request.request service method  where
+    service = Request.ServiceName "ResourceGroups"
+    method = Request.MethodName "listGroupResources"
 
 
 -- | <p>Returns a list of existing resource groups in your account.</p>
 listGroups :: forall eff. ListGroupsInput -> Aff (exception :: EXCEPTION | eff) ListGroupsOutput
-listGroups = Request.request serviceName "listGroups" 
+listGroups = Request.request service method  where
+    service = Request.ServiceName "ResourceGroups"
+    method = Request.MethodName "listGroups"
 
 
 -- | <p>Returns a list of AWS resource identifiers that matches a specified query. The query uses the same format as a resource query in a CreateGroup or UpdateGroupQuery operation.</p>
 searchResources :: forall eff. SearchResourcesInput -> Aff (exception :: EXCEPTION | eff) SearchResourcesOutput
-searchResources = Request.request serviceName "searchResources" 
+searchResources = Request.request service method  where
+    service = Request.ServiceName "ResourceGroups"
+    method = Request.MethodName "searchResources"
 
 
 -- | <p>Adds specified tags to a resource with the specified ARN. Existing tags on a resource are not changed if they are not specified in the request parameters.</p>
 tag :: forall eff. TagInput -> Aff (exception :: EXCEPTION | eff) TagOutput
-tag = Request.request serviceName "tag" 
+tag = Request.request service method  where
+    service = Request.ServiceName "ResourceGroups"
+    method = Request.MethodName "tag"
 
 
 -- | <p>Deletes specified tags from a specified resource.</p>
 untag :: forall eff. UntagInput -> Aff (exception :: EXCEPTION | eff) UntagOutput
-untag = Request.request serviceName "untag" 
+untag = Request.request service method  where
+    service = Request.ServiceName "ResourceGroups"
+    method = Request.MethodName "untag"
 
 
 -- | <p>Updates an existing group with a new or changed description. You cannot update the name of a resource group.</p>
 updateGroup :: forall eff. UpdateGroupInput -> Aff (exception :: EXCEPTION | eff) UpdateGroupOutput
-updateGroup = Request.request serviceName "updateGroup" 
+updateGroup = Request.request service method  where
+    service = Request.ServiceName "ResourceGroups"
+    method = Request.MethodName "updateGroup"
 
 
 -- | <p>Updates the resource query of a group.</p>
 updateGroupQuery :: forall eff. UpdateGroupQueryInput -> Aff (exception :: EXCEPTION | eff) UpdateGroupQueryOutput
-updateGroupQuery = Request.request serviceName "updateGroupQuery" 
+updateGroupQuery = Request.request service method  where
+    service = Request.ServiceName "ResourceGroups"
+    method = Request.MethodName "updateGroupQuery"
 
 
 -- | <p>The request does not comply with validation rules that are defined for the request parameters.</p>
