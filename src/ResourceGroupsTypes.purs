@@ -5,7 +5,6 @@ import Prelude
 import Data.Foreign.Class (class Decode, class Encode)
 import Data.Foreign.Generic (defaultOptions, genericDecode, genericEncode)
 import Data.Foreign.Generic.Types (Options)
-import Data.Foreign.NullOrUndefined (NullOrUndefined(..))
 import Data.Generic.Rep (class Generic)
 import Data.Generic.Rep.Show (genericShow)
 import Data.Maybe (Maybe(..))
@@ -20,7 +19,7 @@ options = defaultOptions { unwrapSingleConstructors = true }
 
 -- | <p>The request does not comply with validation rules that are defined for the request parameters.</p>
 newtype BadRequestException = BadRequestException 
-  { "Message" :: NullOrUndefined (ErrorMessage)
+  { "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeBadRequestException :: Newtype BadRequestException _
 derive instance repGenericBadRequestException :: Generic BadRequestException _
@@ -30,20 +29,20 @@ instance encodeBadRequestException :: Encode BadRequestException where encode = 
 
 -- | Constructs BadRequestException from required parameters
 newBadRequestException :: BadRequestException
-newBadRequestException  = BadRequestException { "Message": (NullOrUndefined Nothing) }
+newBadRequestException  = BadRequestException { "Message": Nothing }
 
 -- | Constructs BadRequestException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newBadRequestException' :: ( { "Message" :: NullOrUndefined (ErrorMessage) } -> {"Message" :: NullOrUndefined (ErrorMessage) } ) -> BadRequestException
-newBadRequestException'  customize = (BadRequestException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newBadRequestException' :: ( { "Message" :: Maybe (ErrorMessage) } -> {"Message" :: Maybe (ErrorMessage) } ) -> BadRequestException
+newBadRequestException'  customize = (BadRequestException <<< customize) { "Message": Nothing }
 
 
 
 newtype CreateGroupInput = CreateGroupInput 
   { "Name" :: (GroupName)
-  , "Description" :: NullOrUndefined (GroupDescription)
+  , "Description" :: Maybe (GroupDescription)
   , "ResourceQuery" :: (ResourceQuery)
-  , "Tags" :: NullOrUndefined (Tags)
+  , "Tags" :: Maybe (Tags)
   }
 derive instance newtypeCreateGroupInput :: Newtype CreateGroupInput _
 derive instance repGenericCreateGroupInput :: Generic CreateGroupInput _
@@ -53,19 +52,19 @@ instance encodeCreateGroupInput :: Encode CreateGroupInput where encode = generi
 
 -- | Constructs CreateGroupInput from required parameters
 newCreateGroupInput :: GroupName -> ResourceQuery -> CreateGroupInput
-newCreateGroupInput _Name _ResourceQuery = CreateGroupInput { "Name": _Name, "ResourceQuery": _ResourceQuery, "Description": (NullOrUndefined Nothing), "Tags": (NullOrUndefined Nothing) }
+newCreateGroupInput _Name _ResourceQuery = CreateGroupInput { "Name": _Name, "ResourceQuery": _ResourceQuery, "Description": Nothing, "Tags": Nothing }
 
 -- | Constructs CreateGroupInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateGroupInput' :: GroupName -> ResourceQuery -> ( { "Name" :: (GroupName) , "Description" :: NullOrUndefined (GroupDescription) , "ResourceQuery" :: (ResourceQuery) , "Tags" :: NullOrUndefined (Tags) } -> {"Name" :: (GroupName) , "Description" :: NullOrUndefined (GroupDescription) , "ResourceQuery" :: (ResourceQuery) , "Tags" :: NullOrUndefined (Tags) } ) -> CreateGroupInput
-newCreateGroupInput' _Name _ResourceQuery customize = (CreateGroupInput <<< customize) { "Name": _Name, "ResourceQuery": _ResourceQuery, "Description": (NullOrUndefined Nothing), "Tags": (NullOrUndefined Nothing) }
+newCreateGroupInput' :: GroupName -> ResourceQuery -> ( { "Name" :: (GroupName) , "Description" :: Maybe (GroupDescription) , "ResourceQuery" :: (ResourceQuery) , "Tags" :: Maybe (Tags) } -> {"Name" :: (GroupName) , "Description" :: Maybe (GroupDescription) , "ResourceQuery" :: (ResourceQuery) , "Tags" :: Maybe (Tags) } ) -> CreateGroupInput
+newCreateGroupInput' _Name _ResourceQuery customize = (CreateGroupInput <<< customize) { "Name": _Name, "ResourceQuery": _ResourceQuery, "Description": Nothing, "Tags": Nothing }
 
 
 
 newtype CreateGroupOutput = CreateGroupOutput 
-  { "Group" :: NullOrUndefined (Group)
-  , "ResourceQuery" :: NullOrUndefined (ResourceQuery)
-  , "Tags" :: NullOrUndefined (Tags)
+  { "Group" :: Maybe (Group)
+  , "ResourceQuery" :: Maybe (ResourceQuery)
+  , "Tags" :: Maybe (Tags)
   }
 derive instance newtypeCreateGroupOutput :: Newtype CreateGroupOutput _
 derive instance repGenericCreateGroupOutput :: Generic CreateGroupOutput _
@@ -75,12 +74,12 @@ instance encodeCreateGroupOutput :: Encode CreateGroupOutput where encode = gene
 
 -- | Constructs CreateGroupOutput from required parameters
 newCreateGroupOutput :: CreateGroupOutput
-newCreateGroupOutput  = CreateGroupOutput { "Group": (NullOrUndefined Nothing), "ResourceQuery": (NullOrUndefined Nothing), "Tags": (NullOrUndefined Nothing) }
+newCreateGroupOutput  = CreateGroupOutput { "Group": Nothing, "ResourceQuery": Nothing, "Tags": Nothing }
 
 -- | Constructs CreateGroupOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateGroupOutput' :: ( { "Group" :: NullOrUndefined (Group) , "ResourceQuery" :: NullOrUndefined (ResourceQuery) , "Tags" :: NullOrUndefined (Tags) } -> {"Group" :: NullOrUndefined (Group) , "ResourceQuery" :: NullOrUndefined (ResourceQuery) , "Tags" :: NullOrUndefined (Tags) } ) -> CreateGroupOutput
-newCreateGroupOutput'  customize = (CreateGroupOutput <<< customize) { "Group": (NullOrUndefined Nothing), "ResourceQuery": (NullOrUndefined Nothing), "Tags": (NullOrUndefined Nothing) }
+newCreateGroupOutput' :: ( { "Group" :: Maybe (Group) , "ResourceQuery" :: Maybe (ResourceQuery) , "Tags" :: Maybe (Tags) } -> {"Group" :: Maybe (Group) , "ResourceQuery" :: Maybe (ResourceQuery) , "Tags" :: Maybe (Tags) } ) -> CreateGroupOutput
+newCreateGroupOutput'  customize = (CreateGroupOutput <<< customize) { "Group": Nothing, "ResourceQuery": Nothing, "Tags": Nothing }
 
 
 
@@ -105,7 +104,7 @@ newDeleteGroupInput' _GroupName customize = (DeleteGroupInput <<< customize) { "
 
 
 newtype DeleteGroupOutput = DeleteGroupOutput 
-  { "Group" :: NullOrUndefined (Group)
+  { "Group" :: Maybe (Group)
   }
 derive instance newtypeDeleteGroupOutput :: Newtype DeleteGroupOutput _
 derive instance repGenericDeleteGroupOutput :: Generic DeleteGroupOutput _
@@ -115,12 +114,12 @@ instance encodeDeleteGroupOutput :: Encode DeleteGroupOutput where encode = gene
 
 -- | Constructs DeleteGroupOutput from required parameters
 newDeleteGroupOutput :: DeleteGroupOutput
-newDeleteGroupOutput  = DeleteGroupOutput { "Group": (NullOrUndefined Nothing) }
+newDeleteGroupOutput  = DeleteGroupOutput { "Group": Nothing }
 
 -- | Constructs DeleteGroupOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDeleteGroupOutput' :: ( { "Group" :: NullOrUndefined (Group) } -> {"Group" :: NullOrUndefined (Group) } ) -> DeleteGroupOutput
-newDeleteGroupOutput'  customize = (DeleteGroupOutput <<< customize) { "Group": (NullOrUndefined Nothing) }
+newDeleteGroupOutput' :: ( { "Group" :: Maybe (Group) } -> {"Group" :: Maybe (Group) } ) -> DeleteGroupOutput
+newDeleteGroupOutput'  customize = (DeleteGroupOutput <<< customize) { "Group": Nothing }
 
 
 
@@ -135,7 +134,7 @@ instance encodeErrorMessage :: Encode ErrorMessage where encode = genericEncode 
 
 -- | <p>The caller is not authorized to make the request.</p>
 newtype ForbiddenException = ForbiddenException 
-  { "Message" :: NullOrUndefined (ErrorMessage)
+  { "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeForbiddenException :: Newtype ForbiddenException _
 derive instance repGenericForbiddenException :: Generic ForbiddenException _
@@ -145,12 +144,12 @@ instance encodeForbiddenException :: Encode ForbiddenException where encode = ge
 
 -- | Constructs ForbiddenException from required parameters
 newForbiddenException :: ForbiddenException
-newForbiddenException  = ForbiddenException { "Message": (NullOrUndefined Nothing) }
+newForbiddenException  = ForbiddenException { "Message": Nothing }
 
 -- | Constructs ForbiddenException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newForbiddenException' :: ( { "Message" :: NullOrUndefined (ErrorMessage) } -> {"Message" :: NullOrUndefined (ErrorMessage) } ) -> ForbiddenException
-newForbiddenException'  customize = (ForbiddenException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newForbiddenException' :: ( { "Message" :: Maybe (ErrorMessage) } -> {"Message" :: Maybe (ErrorMessage) } ) -> ForbiddenException
+newForbiddenException'  customize = (ForbiddenException <<< customize) { "Message": Nothing }
 
 
 
@@ -175,7 +174,7 @@ newGetGroupInput' _GroupName customize = (GetGroupInput <<< customize) { "GroupN
 
 
 newtype GetGroupOutput = GetGroupOutput 
-  { "Group" :: NullOrUndefined (Group)
+  { "Group" :: Maybe (Group)
   }
 derive instance newtypeGetGroupOutput :: Newtype GetGroupOutput _
 derive instance repGenericGetGroupOutput :: Generic GetGroupOutput _
@@ -185,12 +184,12 @@ instance encodeGetGroupOutput :: Encode GetGroupOutput where encode = genericEnc
 
 -- | Constructs GetGroupOutput from required parameters
 newGetGroupOutput :: GetGroupOutput
-newGetGroupOutput  = GetGroupOutput { "Group": (NullOrUndefined Nothing) }
+newGetGroupOutput  = GetGroupOutput { "Group": Nothing }
 
 -- | Constructs GetGroupOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetGroupOutput' :: ( { "Group" :: NullOrUndefined (Group) } -> {"Group" :: NullOrUndefined (Group) } ) -> GetGroupOutput
-newGetGroupOutput'  customize = (GetGroupOutput <<< customize) { "Group": (NullOrUndefined Nothing) }
+newGetGroupOutput' :: ( { "Group" :: Maybe (Group) } -> {"Group" :: Maybe (Group) } ) -> GetGroupOutput
+newGetGroupOutput'  customize = (GetGroupOutput <<< customize) { "Group": Nothing }
 
 
 
@@ -215,7 +214,7 @@ newGetGroupQueryInput' _GroupName customize = (GetGroupQueryInput <<< customize)
 
 
 newtype GetGroupQueryOutput = GetGroupQueryOutput 
-  { "GroupQuery" :: NullOrUndefined (GroupQuery)
+  { "GroupQuery" :: Maybe (GroupQuery)
   }
 derive instance newtypeGetGroupQueryOutput :: Newtype GetGroupQueryOutput _
 derive instance repGenericGetGroupQueryOutput :: Generic GetGroupQueryOutput _
@@ -225,12 +224,12 @@ instance encodeGetGroupQueryOutput :: Encode GetGroupQueryOutput where encode = 
 
 -- | Constructs GetGroupQueryOutput from required parameters
 newGetGroupQueryOutput :: GetGroupQueryOutput
-newGetGroupQueryOutput  = GetGroupQueryOutput { "GroupQuery": (NullOrUndefined Nothing) }
+newGetGroupQueryOutput  = GetGroupQueryOutput { "GroupQuery": Nothing }
 
 -- | Constructs GetGroupQueryOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetGroupQueryOutput' :: ( { "GroupQuery" :: NullOrUndefined (GroupQuery) } -> {"GroupQuery" :: NullOrUndefined (GroupQuery) } ) -> GetGroupQueryOutput
-newGetGroupQueryOutput'  customize = (GetGroupQueryOutput <<< customize) { "GroupQuery": (NullOrUndefined Nothing) }
+newGetGroupQueryOutput' :: ( { "GroupQuery" :: Maybe (GroupQuery) } -> {"GroupQuery" :: Maybe (GroupQuery) } ) -> GetGroupQueryOutput
+newGetGroupQueryOutput'  customize = (GetGroupQueryOutput <<< customize) { "GroupQuery": Nothing }
 
 
 
@@ -255,8 +254,8 @@ newGetTagsInput' _Arn customize = (GetTagsInput <<< customize) { "Arn": _Arn }
 
 
 newtype GetTagsOutput = GetTagsOutput 
-  { "Arn" :: NullOrUndefined (GroupArn)
-  , "Tags" :: NullOrUndefined (Tags)
+  { "Arn" :: Maybe (GroupArn)
+  , "Tags" :: Maybe (Tags)
   }
 derive instance newtypeGetTagsOutput :: Newtype GetTagsOutput _
 derive instance repGenericGetTagsOutput :: Generic GetTagsOutput _
@@ -266,12 +265,12 @@ instance encodeGetTagsOutput :: Encode GetTagsOutput where encode = genericEncod
 
 -- | Constructs GetTagsOutput from required parameters
 newGetTagsOutput :: GetTagsOutput
-newGetTagsOutput  = GetTagsOutput { "Arn": (NullOrUndefined Nothing), "Tags": (NullOrUndefined Nothing) }
+newGetTagsOutput  = GetTagsOutput { "Arn": Nothing, "Tags": Nothing }
 
 -- | Constructs GetTagsOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetTagsOutput' :: ( { "Arn" :: NullOrUndefined (GroupArn) , "Tags" :: NullOrUndefined (Tags) } -> {"Arn" :: NullOrUndefined (GroupArn) , "Tags" :: NullOrUndefined (Tags) } ) -> GetTagsOutput
-newGetTagsOutput'  customize = (GetTagsOutput <<< customize) { "Arn": (NullOrUndefined Nothing), "Tags": (NullOrUndefined Nothing) }
+newGetTagsOutput' :: ( { "Arn" :: Maybe (GroupArn) , "Tags" :: Maybe (Tags) } -> {"Arn" :: Maybe (GroupArn) , "Tags" :: Maybe (Tags) } ) -> GetTagsOutput
+newGetTagsOutput'  customize = (GetTagsOutput <<< customize) { "Arn": Nothing, "Tags": Nothing }
 
 
 
@@ -279,7 +278,7 @@ newGetTagsOutput'  customize = (GetTagsOutput <<< customize) { "Arn": (NullOrUnd
 newtype Group = Group 
   { "GroupArn" :: (GroupArn)
   , "Name" :: (GroupName)
-  , "Description" :: NullOrUndefined (GroupDescription)
+  , "Description" :: Maybe (GroupDescription)
   }
 derive instance newtypeGroup :: Newtype Group _
 derive instance repGenericGroup :: Generic Group _
@@ -289,12 +288,12 @@ instance encodeGroup :: Encode Group where encode = genericEncode options
 
 -- | Constructs Group from required parameters
 newGroup :: GroupArn -> GroupName -> Group
-newGroup _GroupArn _Name = Group { "GroupArn": _GroupArn, "Name": _Name, "Description": (NullOrUndefined Nothing) }
+newGroup _GroupArn _Name = Group { "GroupArn": _GroupArn, "Name": _Name, "Description": Nothing }
 
 -- | Constructs Group's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGroup' :: GroupArn -> GroupName -> ( { "GroupArn" :: (GroupArn) , "Name" :: (GroupName) , "Description" :: NullOrUndefined (GroupDescription) } -> {"GroupArn" :: (GroupArn) , "Name" :: (GroupName) , "Description" :: NullOrUndefined (GroupDescription) } ) -> Group
-newGroup' _GroupArn _Name customize = (Group <<< customize) { "GroupArn": _GroupArn, "Name": _Name, "Description": (NullOrUndefined Nothing) }
+newGroup' :: GroupArn -> GroupName -> ( { "GroupArn" :: (GroupArn) , "Name" :: (GroupName) , "Description" :: Maybe (GroupDescription) } -> {"GroupArn" :: (GroupArn) , "Name" :: (GroupName) , "Description" :: Maybe (GroupDescription) } ) -> Group
+newGroup' _GroupArn _Name customize = (Group <<< customize) { "GroupArn": _GroupArn, "Name": _Name, "Description": Nothing }
 
 
 
@@ -358,7 +357,7 @@ newGroupQuery' _GroupName _ResourceQuery customize = (GroupQuery <<< customize) 
 
 -- | <p>An internal error occurred while processing the request.</p>
 newtype InternalServerErrorException = InternalServerErrorException 
-  { "Message" :: NullOrUndefined (ErrorMessage)
+  { "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeInternalServerErrorException :: Newtype InternalServerErrorException _
 derive instance repGenericInternalServerErrorException :: Generic InternalServerErrorException _
@@ -368,19 +367,19 @@ instance encodeInternalServerErrorException :: Encode InternalServerErrorExcepti
 
 -- | Constructs InternalServerErrorException from required parameters
 newInternalServerErrorException :: InternalServerErrorException
-newInternalServerErrorException  = InternalServerErrorException { "Message": (NullOrUndefined Nothing) }
+newInternalServerErrorException  = InternalServerErrorException { "Message": Nothing }
 
 -- | Constructs InternalServerErrorException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInternalServerErrorException' :: ( { "Message" :: NullOrUndefined (ErrorMessage) } -> {"Message" :: NullOrUndefined (ErrorMessage) } ) -> InternalServerErrorException
-newInternalServerErrorException'  customize = (InternalServerErrorException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newInternalServerErrorException' :: ( { "Message" :: Maybe (ErrorMessage) } -> {"Message" :: Maybe (ErrorMessage) } ) -> InternalServerErrorException
+newInternalServerErrorException'  customize = (InternalServerErrorException <<< customize) { "Message": Nothing }
 
 
 
 newtype ListGroupResourcesInput = ListGroupResourcesInput 
   { "GroupName" :: (GroupName)
-  , "MaxResults" :: NullOrUndefined (MaxResults)
-  , "NextToken" :: NullOrUndefined (NextToken)
+  , "MaxResults" :: Maybe (MaxResults)
+  , "NextToken" :: Maybe (NextToken)
   }
 derive instance newtypeListGroupResourcesInput :: Newtype ListGroupResourcesInput _
 derive instance repGenericListGroupResourcesInput :: Generic ListGroupResourcesInput _
@@ -390,18 +389,18 @@ instance encodeListGroupResourcesInput :: Encode ListGroupResourcesInput where e
 
 -- | Constructs ListGroupResourcesInput from required parameters
 newListGroupResourcesInput :: GroupName -> ListGroupResourcesInput
-newListGroupResourcesInput _GroupName = ListGroupResourcesInput { "GroupName": _GroupName, "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListGroupResourcesInput _GroupName = ListGroupResourcesInput { "GroupName": _GroupName, "MaxResults": Nothing, "NextToken": Nothing }
 
 -- | Constructs ListGroupResourcesInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListGroupResourcesInput' :: GroupName -> ( { "GroupName" :: (GroupName) , "MaxResults" :: NullOrUndefined (MaxResults) , "NextToken" :: NullOrUndefined (NextToken) } -> {"GroupName" :: (GroupName) , "MaxResults" :: NullOrUndefined (MaxResults) , "NextToken" :: NullOrUndefined (NextToken) } ) -> ListGroupResourcesInput
-newListGroupResourcesInput' _GroupName customize = (ListGroupResourcesInput <<< customize) { "GroupName": _GroupName, "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListGroupResourcesInput' :: GroupName -> ( { "GroupName" :: (GroupName) , "MaxResults" :: Maybe (MaxResults) , "NextToken" :: Maybe (NextToken) } -> {"GroupName" :: (GroupName) , "MaxResults" :: Maybe (MaxResults) , "NextToken" :: Maybe (NextToken) } ) -> ListGroupResourcesInput
+newListGroupResourcesInput' _GroupName customize = (ListGroupResourcesInput <<< customize) { "GroupName": _GroupName, "MaxResults": Nothing, "NextToken": Nothing }
 
 
 
 newtype ListGroupResourcesOutput = ListGroupResourcesOutput 
-  { "ResourceIdentifiers" :: NullOrUndefined (ResourceIdentifierList)
-  , "NextToken" :: NullOrUndefined (NextToken)
+  { "ResourceIdentifiers" :: Maybe (ResourceIdentifierList)
+  , "NextToken" :: Maybe (NextToken)
   }
 derive instance newtypeListGroupResourcesOutput :: Newtype ListGroupResourcesOutput _
 derive instance repGenericListGroupResourcesOutput :: Generic ListGroupResourcesOutput _
@@ -411,18 +410,18 @@ instance encodeListGroupResourcesOutput :: Encode ListGroupResourcesOutput where
 
 -- | Constructs ListGroupResourcesOutput from required parameters
 newListGroupResourcesOutput :: ListGroupResourcesOutput
-newListGroupResourcesOutput  = ListGroupResourcesOutput { "NextToken": (NullOrUndefined Nothing), "ResourceIdentifiers": (NullOrUndefined Nothing) }
+newListGroupResourcesOutput  = ListGroupResourcesOutput { "NextToken": Nothing, "ResourceIdentifiers": Nothing }
 
 -- | Constructs ListGroupResourcesOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListGroupResourcesOutput' :: ( { "ResourceIdentifiers" :: NullOrUndefined (ResourceIdentifierList) , "NextToken" :: NullOrUndefined (NextToken) } -> {"ResourceIdentifiers" :: NullOrUndefined (ResourceIdentifierList) , "NextToken" :: NullOrUndefined (NextToken) } ) -> ListGroupResourcesOutput
-newListGroupResourcesOutput'  customize = (ListGroupResourcesOutput <<< customize) { "NextToken": (NullOrUndefined Nothing), "ResourceIdentifiers": (NullOrUndefined Nothing) }
+newListGroupResourcesOutput' :: ( { "ResourceIdentifiers" :: Maybe (ResourceIdentifierList) , "NextToken" :: Maybe (NextToken) } -> {"ResourceIdentifiers" :: Maybe (ResourceIdentifierList) , "NextToken" :: Maybe (NextToken) } ) -> ListGroupResourcesOutput
+newListGroupResourcesOutput'  customize = (ListGroupResourcesOutput <<< customize) { "NextToken": Nothing, "ResourceIdentifiers": Nothing }
 
 
 
 newtype ListGroupsInput = ListGroupsInput 
-  { "MaxResults" :: NullOrUndefined (MaxResults)
-  , "NextToken" :: NullOrUndefined (NextToken)
+  { "MaxResults" :: Maybe (MaxResults)
+  , "NextToken" :: Maybe (NextToken)
   }
 derive instance newtypeListGroupsInput :: Newtype ListGroupsInput _
 derive instance repGenericListGroupsInput :: Generic ListGroupsInput _
@@ -432,18 +431,18 @@ instance encodeListGroupsInput :: Encode ListGroupsInput where encode = genericE
 
 -- | Constructs ListGroupsInput from required parameters
 newListGroupsInput :: ListGroupsInput
-newListGroupsInput  = ListGroupsInput { "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListGroupsInput  = ListGroupsInput { "MaxResults": Nothing, "NextToken": Nothing }
 
 -- | Constructs ListGroupsInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListGroupsInput' :: ( { "MaxResults" :: NullOrUndefined (MaxResults) , "NextToken" :: NullOrUndefined (NextToken) } -> {"MaxResults" :: NullOrUndefined (MaxResults) , "NextToken" :: NullOrUndefined (NextToken) } ) -> ListGroupsInput
-newListGroupsInput'  customize = (ListGroupsInput <<< customize) { "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListGroupsInput' :: ( { "MaxResults" :: Maybe (MaxResults) , "NextToken" :: Maybe (NextToken) } -> {"MaxResults" :: Maybe (MaxResults) , "NextToken" :: Maybe (NextToken) } ) -> ListGroupsInput
+newListGroupsInput'  customize = (ListGroupsInput <<< customize) { "MaxResults": Nothing, "NextToken": Nothing }
 
 
 
 newtype ListGroupsOutput = ListGroupsOutput 
-  { "Groups" :: NullOrUndefined (GroupList)
-  , "NextToken" :: NullOrUndefined (NextToken)
+  { "Groups" :: Maybe (GroupList)
+  , "NextToken" :: Maybe (NextToken)
   }
 derive instance newtypeListGroupsOutput :: Newtype ListGroupsOutput _
 derive instance repGenericListGroupsOutput :: Generic ListGroupsOutput _
@@ -453,12 +452,12 @@ instance encodeListGroupsOutput :: Encode ListGroupsOutput where encode = generi
 
 -- | Constructs ListGroupsOutput from required parameters
 newListGroupsOutput :: ListGroupsOutput
-newListGroupsOutput  = ListGroupsOutput { "Groups": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListGroupsOutput  = ListGroupsOutput { "Groups": Nothing, "NextToken": Nothing }
 
 -- | Constructs ListGroupsOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListGroupsOutput' :: ( { "Groups" :: NullOrUndefined (GroupList) , "NextToken" :: NullOrUndefined (NextToken) } -> {"Groups" :: NullOrUndefined (GroupList) , "NextToken" :: NullOrUndefined (NextToken) } ) -> ListGroupsOutput
-newListGroupsOutput'  customize = (ListGroupsOutput <<< customize) { "Groups": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newListGroupsOutput' :: ( { "Groups" :: Maybe (GroupList) , "NextToken" :: Maybe (NextToken) } -> {"Groups" :: Maybe (GroupList) , "NextToken" :: Maybe (NextToken) } ) -> ListGroupsOutput
+newListGroupsOutput'  customize = (ListGroupsOutput <<< customize) { "Groups": Nothing, "NextToken": Nothing }
 
 
 
@@ -473,7 +472,7 @@ instance encodeMaxResults :: Encode MaxResults where encode = genericEncode opti
 
 -- | <p>The request uses an HTTP method which is not allowed for the specified resource.</p>
 newtype MethodNotAllowedException = MethodNotAllowedException 
-  { "Message" :: NullOrUndefined (ErrorMessage)
+  { "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeMethodNotAllowedException :: Newtype MethodNotAllowedException _
 derive instance repGenericMethodNotAllowedException :: Generic MethodNotAllowedException _
@@ -483,12 +482,12 @@ instance encodeMethodNotAllowedException :: Encode MethodNotAllowedException whe
 
 -- | Constructs MethodNotAllowedException from required parameters
 newMethodNotAllowedException :: MethodNotAllowedException
-newMethodNotAllowedException  = MethodNotAllowedException { "Message": (NullOrUndefined Nothing) }
+newMethodNotAllowedException  = MethodNotAllowedException { "Message": Nothing }
 
 -- | Constructs MethodNotAllowedException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newMethodNotAllowedException' :: ( { "Message" :: NullOrUndefined (ErrorMessage) } -> {"Message" :: NullOrUndefined (ErrorMessage) } ) -> MethodNotAllowedException
-newMethodNotAllowedException'  customize = (MethodNotAllowedException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newMethodNotAllowedException' :: ( { "Message" :: Maybe (ErrorMessage) } -> {"Message" :: Maybe (ErrorMessage) } ) -> MethodNotAllowedException
+newMethodNotAllowedException'  customize = (MethodNotAllowedException <<< customize) { "Message": Nothing }
 
 
 
@@ -503,7 +502,7 @@ instance encodeNextToken :: Encode NextToken where encode = genericEncode option
 
 -- | <p>One or more resources specified in the request do not exist.</p>
 newtype NotFoundException = NotFoundException 
-  { "Message" :: NullOrUndefined (ErrorMessage)
+  { "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeNotFoundException :: Newtype NotFoundException _
 derive instance repGenericNotFoundException :: Generic NotFoundException _
@@ -513,12 +512,12 @@ instance encodeNotFoundException :: Encode NotFoundException where encode = gene
 
 -- | Constructs NotFoundException from required parameters
 newNotFoundException :: NotFoundException
-newNotFoundException  = NotFoundException { "Message": (NullOrUndefined Nothing) }
+newNotFoundException  = NotFoundException { "Message": Nothing }
 
 -- | Constructs NotFoundException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newNotFoundException' :: ( { "Message" :: NullOrUndefined (ErrorMessage) } -> {"Message" :: NullOrUndefined (ErrorMessage) } ) -> NotFoundException
-newNotFoundException'  customize = (NotFoundException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newNotFoundException' :: ( { "Message" :: Maybe (ErrorMessage) } -> {"Message" :: Maybe (ErrorMessage) } ) -> NotFoundException
+newNotFoundException'  customize = (NotFoundException <<< customize) { "Message": Nothing }
 
 
 
@@ -551,8 +550,8 @@ instance encodeResourceArn :: Encode ResourceArn where encode = genericEncode op
 
 -- | <p>The ARN of a resource, and its resource type.</p>
 newtype ResourceIdentifier = ResourceIdentifier 
-  { "ResourceArn" :: NullOrUndefined (ResourceArn)
-  , "ResourceType" :: NullOrUndefined (ResourceType)
+  { "ResourceArn" :: Maybe (ResourceArn)
+  , "ResourceType" :: Maybe (ResourceType)
   }
 derive instance newtypeResourceIdentifier :: Newtype ResourceIdentifier _
 derive instance repGenericResourceIdentifier :: Generic ResourceIdentifier _
@@ -562,12 +561,12 @@ instance encodeResourceIdentifier :: Encode ResourceIdentifier where encode = ge
 
 -- | Constructs ResourceIdentifier from required parameters
 newResourceIdentifier :: ResourceIdentifier
-newResourceIdentifier  = ResourceIdentifier { "ResourceArn": (NullOrUndefined Nothing), "ResourceType": (NullOrUndefined Nothing) }
+newResourceIdentifier  = ResourceIdentifier { "ResourceArn": Nothing, "ResourceType": Nothing }
 
 -- | Constructs ResourceIdentifier's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newResourceIdentifier' :: ( { "ResourceArn" :: NullOrUndefined (ResourceArn) , "ResourceType" :: NullOrUndefined (ResourceType) } -> {"ResourceArn" :: NullOrUndefined (ResourceArn) , "ResourceType" :: NullOrUndefined (ResourceType) } ) -> ResourceIdentifier
-newResourceIdentifier'  customize = (ResourceIdentifier <<< customize) { "ResourceArn": (NullOrUndefined Nothing), "ResourceType": (NullOrUndefined Nothing) }
+newResourceIdentifier' :: ( { "ResourceArn" :: Maybe (ResourceArn) , "ResourceType" :: Maybe (ResourceType) } -> {"ResourceArn" :: Maybe (ResourceArn) , "ResourceType" :: Maybe (ResourceType) } ) -> ResourceIdentifier
+newResourceIdentifier'  customize = (ResourceIdentifier <<< customize) { "ResourceArn": Nothing, "ResourceType": Nothing }
 
 
 
@@ -613,8 +612,8 @@ instance encodeResourceType :: Encode ResourceType where encode = genericEncode 
 
 newtype SearchResourcesInput = SearchResourcesInput 
   { "ResourceQuery" :: (ResourceQuery)
-  , "MaxResults" :: NullOrUndefined (MaxResults)
-  , "NextToken" :: NullOrUndefined (NextToken)
+  , "MaxResults" :: Maybe (MaxResults)
+  , "NextToken" :: Maybe (NextToken)
   }
 derive instance newtypeSearchResourcesInput :: Newtype SearchResourcesInput _
 derive instance repGenericSearchResourcesInput :: Generic SearchResourcesInput _
@@ -624,18 +623,18 @@ instance encodeSearchResourcesInput :: Encode SearchResourcesInput where encode 
 
 -- | Constructs SearchResourcesInput from required parameters
 newSearchResourcesInput :: ResourceQuery -> SearchResourcesInput
-newSearchResourcesInput _ResourceQuery = SearchResourcesInput { "ResourceQuery": _ResourceQuery, "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newSearchResourcesInput _ResourceQuery = SearchResourcesInput { "ResourceQuery": _ResourceQuery, "MaxResults": Nothing, "NextToken": Nothing }
 
 -- | Constructs SearchResourcesInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newSearchResourcesInput' :: ResourceQuery -> ( { "ResourceQuery" :: (ResourceQuery) , "MaxResults" :: NullOrUndefined (MaxResults) , "NextToken" :: NullOrUndefined (NextToken) } -> {"ResourceQuery" :: (ResourceQuery) , "MaxResults" :: NullOrUndefined (MaxResults) , "NextToken" :: NullOrUndefined (NextToken) } ) -> SearchResourcesInput
-newSearchResourcesInput' _ResourceQuery customize = (SearchResourcesInput <<< customize) { "ResourceQuery": _ResourceQuery, "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newSearchResourcesInput' :: ResourceQuery -> ( { "ResourceQuery" :: (ResourceQuery) , "MaxResults" :: Maybe (MaxResults) , "NextToken" :: Maybe (NextToken) } -> {"ResourceQuery" :: (ResourceQuery) , "MaxResults" :: Maybe (MaxResults) , "NextToken" :: Maybe (NextToken) } ) -> SearchResourcesInput
+newSearchResourcesInput' _ResourceQuery customize = (SearchResourcesInput <<< customize) { "ResourceQuery": _ResourceQuery, "MaxResults": Nothing, "NextToken": Nothing }
 
 
 
 newtype SearchResourcesOutput = SearchResourcesOutput 
-  { "ResourceIdentifiers" :: NullOrUndefined (ResourceIdentifierList)
-  , "NextToken" :: NullOrUndefined (NextToken)
+  { "ResourceIdentifiers" :: Maybe (ResourceIdentifierList)
+  , "NextToken" :: Maybe (NextToken)
   }
 derive instance newtypeSearchResourcesOutput :: Newtype SearchResourcesOutput _
 derive instance repGenericSearchResourcesOutput :: Generic SearchResourcesOutput _
@@ -645,12 +644,12 @@ instance encodeSearchResourcesOutput :: Encode SearchResourcesOutput where encod
 
 -- | Constructs SearchResourcesOutput from required parameters
 newSearchResourcesOutput :: SearchResourcesOutput
-newSearchResourcesOutput  = SearchResourcesOutput { "NextToken": (NullOrUndefined Nothing), "ResourceIdentifiers": (NullOrUndefined Nothing) }
+newSearchResourcesOutput  = SearchResourcesOutput { "NextToken": Nothing, "ResourceIdentifiers": Nothing }
 
 -- | Constructs SearchResourcesOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newSearchResourcesOutput' :: ( { "ResourceIdentifiers" :: NullOrUndefined (ResourceIdentifierList) , "NextToken" :: NullOrUndefined (NextToken) } -> {"ResourceIdentifiers" :: NullOrUndefined (ResourceIdentifierList) , "NextToken" :: NullOrUndefined (NextToken) } ) -> SearchResourcesOutput
-newSearchResourcesOutput'  customize = (SearchResourcesOutput <<< customize) { "NextToken": (NullOrUndefined Nothing), "ResourceIdentifiers": (NullOrUndefined Nothing) }
+newSearchResourcesOutput' :: ( { "ResourceIdentifiers" :: Maybe (ResourceIdentifierList) , "NextToken" :: Maybe (NextToken) } -> {"ResourceIdentifiers" :: Maybe (ResourceIdentifierList) , "NextToken" :: Maybe (NextToken) } ) -> SearchResourcesOutput
+newSearchResourcesOutput'  customize = (SearchResourcesOutput <<< customize) { "NextToken": Nothing, "ResourceIdentifiers": Nothing }
 
 
 
@@ -694,8 +693,8 @@ instance encodeTagKeyList :: Encode TagKeyList where encode = genericEncode opti
 
 
 newtype TagOutput = TagOutput 
-  { "Arn" :: NullOrUndefined (GroupArn)
-  , "Tags" :: NullOrUndefined (Tags)
+  { "Arn" :: Maybe (GroupArn)
+  , "Tags" :: Maybe (Tags)
   }
 derive instance newtypeTagOutput :: Newtype TagOutput _
 derive instance repGenericTagOutput :: Generic TagOutput _
@@ -705,12 +704,12 @@ instance encodeTagOutput :: Encode TagOutput where encode = genericEncode option
 
 -- | Constructs TagOutput from required parameters
 newTagOutput :: TagOutput
-newTagOutput  = TagOutput { "Arn": (NullOrUndefined Nothing), "Tags": (NullOrUndefined Nothing) }
+newTagOutput  = TagOutput { "Arn": Nothing, "Tags": Nothing }
 
 -- | Constructs TagOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTagOutput' :: ( { "Arn" :: NullOrUndefined (GroupArn) , "Tags" :: NullOrUndefined (Tags) } -> {"Arn" :: NullOrUndefined (GroupArn) , "Tags" :: NullOrUndefined (Tags) } ) -> TagOutput
-newTagOutput'  customize = (TagOutput <<< customize) { "Arn": (NullOrUndefined Nothing), "Tags": (NullOrUndefined Nothing) }
+newTagOutput' :: ( { "Arn" :: Maybe (GroupArn) , "Tags" :: Maybe (Tags) } -> {"Arn" :: Maybe (GroupArn) , "Tags" :: Maybe (Tags) } ) -> TagOutput
+newTagOutput'  customize = (TagOutput <<< customize) { "Arn": Nothing, "Tags": Nothing }
 
 
 
@@ -734,7 +733,7 @@ instance encodeTags :: Encode Tags where encode = genericEncode options
 
 -- | <p>The caller has exceeded throttling limits.</p>
 newtype TooManyRequestsException = TooManyRequestsException 
-  { "Message" :: NullOrUndefined (ErrorMessage)
+  { "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeTooManyRequestsException :: Newtype TooManyRequestsException _
 derive instance repGenericTooManyRequestsException :: Generic TooManyRequestsException _
@@ -744,18 +743,18 @@ instance encodeTooManyRequestsException :: Encode TooManyRequestsException where
 
 -- | Constructs TooManyRequestsException from required parameters
 newTooManyRequestsException :: TooManyRequestsException
-newTooManyRequestsException  = TooManyRequestsException { "Message": (NullOrUndefined Nothing) }
+newTooManyRequestsException  = TooManyRequestsException { "Message": Nothing }
 
 -- | Constructs TooManyRequestsException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTooManyRequestsException' :: ( { "Message" :: NullOrUndefined (ErrorMessage) } -> {"Message" :: NullOrUndefined (ErrorMessage) } ) -> TooManyRequestsException
-newTooManyRequestsException'  customize = (TooManyRequestsException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newTooManyRequestsException' :: ( { "Message" :: Maybe (ErrorMessage) } -> {"Message" :: Maybe (ErrorMessage) } ) -> TooManyRequestsException
+newTooManyRequestsException'  customize = (TooManyRequestsException <<< customize) { "Message": Nothing }
 
 
 
 -- | <p>The request has not been applied because it lacks valid authentication credentials for the target resource.</p>
 newtype UnauthorizedException = UnauthorizedException 
-  { "Message" :: NullOrUndefined (ErrorMessage)
+  { "Message" :: Maybe (ErrorMessage)
   }
 derive instance newtypeUnauthorizedException :: Newtype UnauthorizedException _
 derive instance repGenericUnauthorizedException :: Generic UnauthorizedException _
@@ -765,12 +764,12 @@ instance encodeUnauthorizedException :: Encode UnauthorizedException where encod
 
 -- | Constructs UnauthorizedException from required parameters
 newUnauthorizedException :: UnauthorizedException
-newUnauthorizedException  = UnauthorizedException { "Message": (NullOrUndefined Nothing) }
+newUnauthorizedException  = UnauthorizedException { "Message": Nothing }
 
 -- | Constructs UnauthorizedException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUnauthorizedException' :: ( { "Message" :: NullOrUndefined (ErrorMessage) } -> {"Message" :: NullOrUndefined (ErrorMessage) } ) -> UnauthorizedException
-newUnauthorizedException'  customize = (UnauthorizedException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newUnauthorizedException' :: ( { "Message" :: Maybe (ErrorMessage) } -> {"Message" :: Maybe (ErrorMessage) } ) -> UnauthorizedException
+newUnauthorizedException'  customize = (UnauthorizedException <<< customize) { "Message": Nothing }
 
 
 
@@ -796,8 +795,8 @@ newUntagInput' _Arn _Keys customize = (UntagInput <<< customize) { "Arn": _Arn, 
 
 
 newtype UntagOutput = UntagOutput 
-  { "Arn" :: NullOrUndefined (GroupArn)
-  , "Keys" :: NullOrUndefined (TagKeyList)
+  { "Arn" :: Maybe (GroupArn)
+  , "Keys" :: Maybe (TagKeyList)
   }
 derive instance newtypeUntagOutput :: Newtype UntagOutput _
 derive instance repGenericUntagOutput :: Generic UntagOutput _
@@ -807,18 +806,18 @@ instance encodeUntagOutput :: Encode UntagOutput where encode = genericEncode op
 
 -- | Constructs UntagOutput from required parameters
 newUntagOutput :: UntagOutput
-newUntagOutput  = UntagOutput { "Arn": (NullOrUndefined Nothing), "Keys": (NullOrUndefined Nothing) }
+newUntagOutput  = UntagOutput { "Arn": Nothing, "Keys": Nothing }
 
 -- | Constructs UntagOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUntagOutput' :: ( { "Arn" :: NullOrUndefined (GroupArn) , "Keys" :: NullOrUndefined (TagKeyList) } -> {"Arn" :: NullOrUndefined (GroupArn) , "Keys" :: NullOrUndefined (TagKeyList) } ) -> UntagOutput
-newUntagOutput'  customize = (UntagOutput <<< customize) { "Arn": (NullOrUndefined Nothing), "Keys": (NullOrUndefined Nothing) }
+newUntagOutput' :: ( { "Arn" :: Maybe (GroupArn) , "Keys" :: Maybe (TagKeyList) } -> {"Arn" :: Maybe (GroupArn) , "Keys" :: Maybe (TagKeyList) } ) -> UntagOutput
+newUntagOutput'  customize = (UntagOutput <<< customize) { "Arn": Nothing, "Keys": Nothing }
 
 
 
 newtype UpdateGroupInput = UpdateGroupInput 
   { "GroupName" :: (GroupName)
-  , "Description" :: NullOrUndefined (GroupDescription)
+  , "Description" :: Maybe (GroupDescription)
   }
 derive instance newtypeUpdateGroupInput :: Newtype UpdateGroupInput _
 derive instance repGenericUpdateGroupInput :: Generic UpdateGroupInput _
@@ -828,17 +827,17 @@ instance encodeUpdateGroupInput :: Encode UpdateGroupInput where encode = generi
 
 -- | Constructs UpdateGroupInput from required parameters
 newUpdateGroupInput :: GroupName -> UpdateGroupInput
-newUpdateGroupInput _GroupName = UpdateGroupInput { "GroupName": _GroupName, "Description": (NullOrUndefined Nothing) }
+newUpdateGroupInput _GroupName = UpdateGroupInput { "GroupName": _GroupName, "Description": Nothing }
 
 -- | Constructs UpdateGroupInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateGroupInput' :: GroupName -> ( { "GroupName" :: (GroupName) , "Description" :: NullOrUndefined (GroupDescription) } -> {"GroupName" :: (GroupName) , "Description" :: NullOrUndefined (GroupDescription) } ) -> UpdateGroupInput
-newUpdateGroupInput' _GroupName customize = (UpdateGroupInput <<< customize) { "GroupName": _GroupName, "Description": (NullOrUndefined Nothing) }
+newUpdateGroupInput' :: GroupName -> ( { "GroupName" :: (GroupName) , "Description" :: Maybe (GroupDescription) } -> {"GroupName" :: (GroupName) , "Description" :: Maybe (GroupDescription) } ) -> UpdateGroupInput
+newUpdateGroupInput' _GroupName customize = (UpdateGroupInput <<< customize) { "GroupName": _GroupName, "Description": Nothing }
 
 
 
 newtype UpdateGroupOutput = UpdateGroupOutput 
-  { "Group" :: NullOrUndefined (Group)
+  { "Group" :: Maybe (Group)
   }
 derive instance newtypeUpdateGroupOutput :: Newtype UpdateGroupOutput _
 derive instance repGenericUpdateGroupOutput :: Generic UpdateGroupOutput _
@@ -848,12 +847,12 @@ instance encodeUpdateGroupOutput :: Encode UpdateGroupOutput where encode = gene
 
 -- | Constructs UpdateGroupOutput from required parameters
 newUpdateGroupOutput :: UpdateGroupOutput
-newUpdateGroupOutput  = UpdateGroupOutput { "Group": (NullOrUndefined Nothing) }
+newUpdateGroupOutput  = UpdateGroupOutput { "Group": Nothing }
 
 -- | Constructs UpdateGroupOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateGroupOutput' :: ( { "Group" :: NullOrUndefined (Group) } -> {"Group" :: NullOrUndefined (Group) } ) -> UpdateGroupOutput
-newUpdateGroupOutput'  customize = (UpdateGroupOutput <<< customize) { "Group": (NullOrUndefined Nothing) }
+newUpdateGroupOutput' :: ( { "Group" :: Maybe (Group) } -> {"Group" :: Maybe (Group) } ) -> UpdateGroupOutput
+newUpdateGroupOutput'  customize = (UpdateGroupOutput <<< customize) { "Group": Nothing }
 
 
 
@@ -879,7 +878,7 @@ newUpdateGroupQueryInput' _GroupName _ResourceQuery customize = (UpdateGroupQuer
 
 
 newtype UpdateGroupQueryOutput = UpdateGroupQueryOutput 
-  { "GroupQuery" :: NullOrUndefined (GroupQuery)
+  { "GroupQuery" :: Maybe (GroupQuery)
   }
 derive instance newtypeUpdateGroupQueryOutput :: Newtype UpdateGroupQueryOutput _
 derive instance repGenericUpdateGroupQueryOutput :: Generic UpdateGroupQueryOutput _
@@ -889,10 +888,10 @@ instance encodeUpdateGroupQueryOutput :: Encode UpdateGroupQueryOutput where enc
 
 -- | Constructs UpdateGroupQueryOutput from required parameters
 newUpdateGroupQueryOutput :: UpdateGroupQueryOutput
-newUpdateGroupQueryOutput  = UpdateGroupQueryOutput { "GroupQuery": (NullOrUndefined Nothing) }
+newUpdateGroupQueryOutput  = UpdateGroupQueryOutput { "GroupQuery": Nothing }
 
 -- | Constructs UpdateGroupQueryOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateGroupQueryOutput' :: ( { "GroupQuery" :: NullOrUndefined (GroupQuery) } -> {"GroupQuery" :: NullOrUndefined (GroupQuery) } ) -> UpdateGroupQueryOutput
-newUpdateGroupQueryOutput'  customize = (UpdateGroupQueryOutput <<< customize) { "GroupQuery": (NullOrUndefined Nothing) }
+newUpdateGroupQueryOutput' :: ( { "GroupQuery" :: Maybe (GroupQuery) } -> {"GroupQuery" :: Maybe (GroupQuery) } ) -> UpdateGroupQueryOutput
+newUpdateGroupQueryOutput'  customize = (UpdateGroupQueryOutput <<< customize) { "GroupQuery": Nothing }
 

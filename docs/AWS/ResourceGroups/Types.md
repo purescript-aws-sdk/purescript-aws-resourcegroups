@@ -10,7 +10,7 @@ options :: Options
 
 ``` purescript
 newtype BadRequestException
-  = BadRequestException { "Message" :: NullOrUndefined (ErrorMessage) }
+  = BadRequestException { "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>The request does not comply with validation rules that are defined for the request parameters.</p>
@@ -35,7 +35,7 @@ Constructs BadRequestException from required parameters
 #### `newBadRequestException'`
 
 ``` purescript
-newBadRequestException' :: ({ "Message" :: NullOrUndefined (ErrorMessage) } -> { "Message" :: NullOrUndefined (ErrorMessage) }) -> BadRequestException
+newBadRequestException' :: ({ "Message" :: Maybe (ErrorMessage) } -> { "Message" :: Maybe (ErrorMessage) }) -> BadRequestException
 ```
 
 Constructs BadRequestException's fields from required parameters
@@ -44,7 +44,7 @@ Constructs BadRequestException's fields from required parameters
 
 ``` purescript
 newtype CreateGroupInput
-  = CreateGroupInput { "Name" :: GroupName, "Description" :: NullOrUndefined (GroupDescription), "ResourceQuery" :: ResourceQuery, "Tags" :: NullOrUndefined (Tags) }
+  = CreateGroupInput { "Name" :: GroupName, "Description" :: Maybe (GroupDescription), "ResourceQuery" :: ResourceQuery, "Tags" :: Maybe (Tags) }
 ```
 
 ##### Instances
@@ -67,7 +67,7 @@ Constructs CreateGroupInput from required parameters
 #### `newCreateGroupInput'`
 
 ``` purescript
-newCreateGroupInput' :: GroupName -> ResourceQuery -> ({ "Name" :: GroupName, "Description" :: NullOrUndefined (GroupDescription), "ResourceQuery" :: ResourceQuery, "Tags" :: NullOrUndefined (Tags) } -> { "Name" :: GroupName, "Description" :: NullOrUndefined (GroupDescription), "ResourceQuery" :: ResourceQuery, "Tags" :: NullOrUndefined (Tags) }) -> CreateGroupInput
+newCreateGroupInput' :: GroupName -> ResourceQuery -> ({ "Name" :: GroupName, "Description" :: Maybe (GroupDescription), "ResourceQuery" :: ResourceQuery, "Tags" :: Maybe (Tags) } -> { "Name" :: GroupName, "Description" :: Maybe (GroupDescription), "ResourceQuery" :: ResourceQuery, "Tags" :: Maybe (Tags) }) -> CreateGroupInput
 ```
 
 Constructs CreateGroupInput's fields from required parameters
@@ -76,7 +76,7 @@ Constructs CreateGroupInput's fields from required parameters
 
 ``` purescript
 newtype CreateGroupOutput
-  = CreateGroupOutput { "Group" :: NullOrUndefined (Group), "ResourceQuery" :: NullOrUndefined (ResourceQuery), "Tags" :: NullOrUndefined (Tags) }
+  = CreateGroupOutput { "Group" :: Maybe (Group), "ResourceQuery" :: Maybe (ResourceQuery), "Tags" :: Maybe (Tags) }
 ```
 
 ##### Instances
@@ -99,7 +99,7 @@ Constructs CreateGroupOutput from required parameters
 #### `newCreateGroupOutput'`
 
 ``` purescript
-newCreateGroupOutput' :: ({ "Group" :: NullOrUndefined (Group), "ResourceQuery" :: NullOrUndefined (ResourceQuery), "Tags" :: NullOrUndefined (Tags) } -> { "Group" :: NullOrUndefined (Group), "ResourceQuery" :: NullOrUndefined (ResourceQuery), "Tags" :: NullOrUndefined (Tags) }) -> CreateGroupOutput
+newCreateGroupOutput' :: ({ "Group" :: Maybe (Group), "ResourceQuery" :: Maybe (ResourceQuery), "Tags" :: Maybe (Tags) } -> { "Group" :: Maybe (Group), "ResourceQuery" :: Maybe (ResourceQuery), "Tags" :: Maybe (Tags) }) -> CreateGroupOutput
 ```
 
 Constructs CreateGroupOutput's fields from required parameters
@@ -140,7 +140,7 @@ Constructs DeleteGroupInput's fields from required parameters
 
 ``` purescript
 newtype DeleteGroupOutput
-  = DeleteGroupOutput { "Group" :: NullOrUndefined (Group) }
+  = DeleteGroupOutput { "Group" :: Maybe (Group) }
 ```
 
 ##### Instances
@@ -163,7 +163,7 @@ Constructs DeleteGroupOutput from required parameters
 #### `newDeleteGroupOutput'`
 
 ``` purescript
-newDeleteGroupOutput' :: ({ "Group" :: NullOrUndefined (Group) } -> { "Group" :: NullOrUndefined (Group) }) -> DeleteGroupOutput
+newDeleteGroupOutput' :: ({ "Group" :: Maybe (Group) } -> { "Group" :: Maybe (Group) }) -> DeleteGroupOutput
 ```
 
 Constructs DeleteGroupOutput's fields from required parameters
@@ -188,7 +188,7 @@ Encode ErrorMessage
 
 ``` purescript
 newtype ForbiddenException
-  = ForbiddenException { "Message" :: NullOrUndefined (ErrorMessage) }
+  = ForbiddenException { "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>The caller is not authorized to make the request.</p>
@@ -213,7 +213,7 @@ Constructs ForbiddenException from required parameters
 #### `newForbiddenException'`
 
 ``` purescript
-newForbiddenException' :: ({ "Message" :: NullOrUndefined (ErrorMessage) } -> { "Message" :: NullOrUndefined (ErrorMessage) }) -> ForbiddenException
+newForbiddenException' :: ({ "Message" :: Maybe (ErrorMessage) } -> { "Message" :: Maybe (ErrorMessage) }) -> ForbiddenException
 ```
 
 Constructs ForbiddenException's fields from required parameters
@@ -254,7 +254,7 @@ Constructs GetGroupInput's fields from required parameters
 
 ``` purescript
 newtype GetGroupOutput
-  = GetGroupOutput { "Group" :: NullOrUndefined (Group) }
+  = GetGroupOutput { "Group" :: Maybe (Group) }
 ```
 
 ##### Instances
@@ -277,7 +277,7 @@ Constructs GetGroupOutput from required parameters
 #### `newGetGroupOutput'`
 
 ``` purescript
-newGetGroupOutput' :: ({ "Group" :: NullOrUndefined (Group) } -> { "Group" :: NullOrUndefined (Group) }) -> GetGroupOutput
+newGetGroupOutput' :: ({ "Group" :: Maybe (Group) } -> { "Group" :: Maybe (Group) }) -> GetGroupOutput
 ```
 
 Constructs GetGroupOutput's fields from required parameters
@@ -318,7 +318,7 @@ Constructs GetGroupQueryInput's fields from required parameters
 
 ``` purescript
 newtype GetGroupQueryOutput
-  = GetGroupQueryOutput { "GroupQuery" :: NullOrUndefined (GroupQuery) }
+  = GetGroupQueryOutput { "GroupQuery" :: Maybe (GroupQuery) }
 ```
 
 ##### Instances
@@ -341,7 +341,7 @@ Constructs GetGroupQueryOutput from required parameters
 #### `newGetGroupQueryOutput'`
 
 ``` purescript
-newGetGroupQueryOutput' :: ({ "GroupQuery" :: NullOrUndefined (GroupQuery) } -> { "GroupQuery" :: NullOrUndefined (GroupQuery) }) -> GetGroupQueryOutput
+newGetGroupQueryOutput' :: ({ "GroupQuery" :: Maybe (GroupQuery) } -> { "GroupQuery" :: Maybe (GroupQuery) }) -> GetGroupQueryOutput
 ```
 
 Constructs GetGroupQueryOutput's fields from required parameters
@@ -382,7 +382,7 @@ Constructs GetTagsInput's fields from required parameters
 
 ``` purescript
 newtype GetTagsOutput
-  = GetTagsOutput { "Arn" :: NullOrUndefined (GroupArn), "Tags" :: NullOrUndefined (Tags) }
+  = GetTagsOutput { "Arn" :: Maybe (GroupArn), "Tags" :: Maybe (Tags) }
 ```
 
 ##### Instances
@@ -405,7 +405,7 @@ Constructs GetTagsOutput from required parameters
 #### `newGetTagsOutput'`
 
 ``` purescript
-newGetTagsOutput' :: ({ "Arn" :: NullOrUndefined (GroupArn), "Tags" :: NullOrUndefined (Tags) } -> { "Arn" :: NullOrUndefined (GroupArn), "Tags" :: NullOrUndefined (Tags) }) -> GetTagsOutput
+newGetTagsOutput' :: ({ "Arn" :: Maybe (GroupArn), "Tags" :: Maybe (Tags) } -> { "Arn" :: Maybe (GroupArn), "Tags" :: Maybe (Tags) }) -> GetTagsOutput
 ```
 
 Constructs GetTagsOutput's fields from required parameters
@@ -414,7 +414,7 @@ Constructs GetTagsOutput's fields from required parameters
 
 ``` purescript
 newtype Group
-  = Group { "GroupArn" :: GroupArn, "Name" :: GroupName, "Description" :: NullOrUndefined (GroupDescription) }
+  = Group { "GroupArn" :: GroupArn, "Name" :: GroupName, "Description" :: Maybe (GroupDescription) }
 ```
 
 <p>A resource group.</p>
@@ -439,7 +439,7 @@ Constructs Group from required parameters
 #### `newGroup'`
 
 ``` purescript
-newGroup' :: GroupArn -> GroupName -> ({ "GroupArn" :: GroupArn, "Name" :: GroupName, "Description" :: NullOrUndefined (GroupDescription) } -> { "GroupArn" :: GroupArn, "Name" :: GroupName, "Description" :: NullOrUndefined (GroupDescription) }) -> Group
+newGroup' :: GroupArn -> GroupName -> ({ "GroupArn" :: GroupArn, "Name" :: GroupName, "Description" :: Maybe (GroupDescription) } -> { "GroupArn" :: GroupArn, "Name" :: GroupName, "Description" :: Maybe (GroupDescription) }) -> Group
 ```
 
 Constructs Group's fields from required parameters
@@ -546,7 +546,7 @@ Constructs GroupQuery's fields from required parameters
 
 ``` purescript
 newtype InternalServerErrorException
-  = InternalServerErrorException { "Message" :: NullOrUndefined (ErrorMessage) }
+  = InternalServerErrorException { "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>An internal error occurred while processing the request.</p>
@@ -571,7 +571,7 @@ Constructs InternalServerErrorException from required parameters
 #### `newInternalServerErrorException'`
 
 ``` purescript
-newInternalServerErrorException' :: ({ "Message" :: NullOrUndefined (ErrorMessage) } -> { "Message" :: NullOrUndefined (ErrorMessage) }) -> InternalServerErrorException
+newInternalServerErrorException' :: ({ "Message" :: Maybe (ErrorMessage) } -> { "Message" :: Maybe (ErrorMessage) }) -> InternalServerErrorException
 ```
 
 Constructs InternalServerErrorException's fields from required parameters
@@ -580,7 +580,7 @@ Constructs InternalServerErrorException's fields from required parameters
 
 ``` purescript
 newtype ListGroupResourcesInput
-  = ListGroupResourcesInput { "GroupName" :: GroupName, "MaxResults" :: NullOrUndefined (MaxResults), "NextToken" :: NullOrUndefined (NextToken) }
+  = ListGroupResourcesInput { "GroupName" :: GroupName, "MaxResults" :: Maybe (MaxResults), "NextToken" :: Maybe (NextToken) }
 ```
 
 ##### Instances
@@ -603,7 +603,7 @@ Constructs ListGroupResourcesInput from required parameters
 #### `newListGroupResourcesInput'`
 
 ``` purescript
-newListGroupResourcesInput' :: GroupName -> ({ "GroupName" :: GroupName, "MaxResults" :: NullOrUndefined (MaxResults), "NextToken" :: NullOrUndefined (NextToken) } -> { "GroupName" :: GroupName, "MaxResults" :: NullOrUndefined (MaxResults), "NextToken" :: NullOrUndefined (NextToken) }) -> ListGroupResourcesInput
+newListGroupResourcesInput' :: GroupName -> ({ "GroupName" :: GroupName, "MaxResults" :: Maybe (MaxResults), "NextToken" :: Maybe (NextToken) } -> { "GroupName" :: GroupName, "MaxResults" :: Maybe (MaxResults), "NextToken" :: Maybe (NextToken) }) -> ListGroupResourcesInput
 ```
 
 Constructs ListGroupResourcesInput's fields from required parameters
@@ -612,7 +612,7 @@ Constructs ListGroupResourcesInput's fields from required parameters
 
 ``` purescript
 newtype ListGroupResourcesOutput
-  = ListGroupResourcesOutput { "ResourceIdentifiers" :: NullOrUndefined (ResourceIdentifierList), "NextToken" :: NullOrUndefined (NextToken) }
+  = ListGroupResourcesOutput { "ResourceIdentifiers" :: Maybe (ResourceIdentifierList), "NextToken" :: Maybe (NextToken) }
 ```
 
 ##### Instances
@@ -635,7 +635,7 @@ Constructs ListGroupResourcesOutput from required parameters
 #### `newListGroupResourcesOutput'`
 
 ``` purescript
-newListGroupResourcesOutput' :: ({ "ResourceIdentifiers" :: NullOrUndefined (ResourceIdentifierList), "NextToken" :: NullOrUndefined (NextToken) } -> { "ResourceIdentifiers" :: NullOrUndefined (ResourceIdentifierList), "NextToken" :: NullOrUndefined (NextToken) }) -> ListGroupResourcesOutput
+newListGroupResourcesOutput' :: ({ "ResourceIdentifiers" :: Maybe (ResourceIdentifierList), "NextToken" :: Maybe (NextToken) } -> { "ResourceIdentifiers" :: Maybe (ResourceIdentifierList), "NextToken" :: Maybe (NextToken) }) -> ListGroupResourcesOutput
 ```
 
 Constructs ListGroupResourcesOutput's fields from required parameters
@@ -644,7 +644,7 @@ Constructs ListGroupResourcesOutput's fields from required parameters
 
 ``` purescript
 newtype ListGroupsInput
-  = ListGroupsInput { "MaxResults" :: NullOrUndefined (MaxResults), "NextToken" :: NullOrUndefined (NextToken) }
+  = ListGroupsInput { "MaxResults" :: Maybe (MaxResults), "NextToken" :: Maybe (NextToken) }
 ```
 
 ##### Instances
@@ -667,7 +667,7 @@ Constructs ListGroupsInput from required parameters
 #### `newListGroupsInput'`
 
 ``` purescript
-newListGroupsInput' :: ({ "MaxResults" :: NullOrUndefined (MaxResults), "NextToken" :: NullOrUndefined (NextToken) } -> { "MaxResults" :: NullOrUndefined (MaxResults), "NextToken" :: NullOrUndefined (NextToken) }) -> ListGroupsInput
+newListGroupsInput' :: ({ "MaxResults" :: Maybe (MaxResults), "NextToken" :: Maybe (NextToken) } -> { "MaxResults" :: Maybe (MaxResults), "NextToken" :: Maybe (NextToken) }) -> ListGroupsInput
 ```
 
 Constructs ListGroupsInput's fields from required parameters
@@ -676,7 +676,7 @@ Constructs ListGroupsInput's fields from required parameters
 
 ``` purescript
 newtype ListGroupsOutput
-  = ListGroupsOutput { "Groups" :: NullOrUndefined (GroupList), "NextToken" :: NullOrUndefined (NextToken) }
+  = ListGroupsOutput { "Groups" :: Maybe (GroupList), "NextToken" :: Maybe (NextToken) }
 ```
 
 ##### Instances
@@ -699,7 +699,7 @@ Constructs ListGroupsOutput from required parameters
 #### `newListGroupsOutput'`
 
 ``` purescript
-newListGroupsOutput' :: ({ "Groups" :: NullOrUndefined (GroupList), "NextToken" :: NullOrUndefined (NextToken) } -> { "Groups" :: NullOrUndefined (GroupList), "NextToken" :: NullOrUndefined (NextToken) }) -> ListGroupsOutput
+newListGroupsOutput' :: ({ "Groups" :: Maybe (GroupList), "NextToken" :: Maybe (NextToken) } -> { "Groups" :: Maybe (GroupList), "NextToken" :: Maybe (NextToken) }) -> ListGroupsOutput
 ```
 
 Constructs ListGroupsOutput's fields from required parameters
@@ -724,7 +724,7 @@ Encode MaxResults
 
 ``` purescript
 newtype MethodNotAllowedException
-  = MethodNotAllowedException { "Message" :: NullOrUndefined (ErrorMessage) }
+  = MethodNotAllowedException { "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>The request uses an HTTP method which is not allowed for the specified resource.</p>
@@ -749,7 +749,7 @@ Constructs MethodNotAllowedException from required parameters
 #### `newMethodNotAllowedException'`
 
 ``` purescript
-newMethodNotAllowedException' :: ({ "Message" :: NullOrUndefined (ErrorMessage) } -> { "Message" :: NullOrUndefined (ErrorMessage) }) -> MethodNotAllowedException
+newMethodNotAllowedException' :: ({ "Message" :: Maybe (ErrorMessage) } -> { "Message" :: Maybe (ErrorMessage) }) -> MethodNotAllowedException
 ```
 
 Constructs MethodNotAllowedException's fields from required parameters
@@ -774,7 +774,7 @@ Encode NextToken
 
 ``` purescript
 newtype NotFoundException
-  = NotFoundException { "Message" :: NullOrUndefined (ErrorMessage) }
+  = NotFoundException { "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>One or more resources specified in the request do not exist.</p>
@@ -799,7 +799,7 @@ Constructs NotFoundException from required parameters
 #### `newNotFoundException'`
 
 ``` purescript
-newNotFoundException' :: ({ "Message" :: NullOrUndefined (ErrorMessage) } -> { "Message" :: NullOrUndefined (ErrorMessage) }) -> NotFoundException
+newNotFoundException' :: ({ "Message" :: Maybe (ErrorMessage) } -> { "Message" :: Maybe (ErrorMessage) }) -> NotFoundException
 ```
 
 Constructs NotFoundException's fields from required parameters
@@ -856,7 +856,7 @@ Encode ResourceArn
 
 ``` purescript
 newtype ResourceIdentifier
-  = ResourceIdentifier { "ResourceArn" :: NullOrUndefined (ResourceArn), "ResourceType" :: NullOrUndefined (ResourceType) }
+  = ResourceIdentifier { "ResourceArn" :: Maybe (ResourceArn), "ResourceType" :: Maybe (ResourceType) }
 ```
 
 <p>The ARN of a resource, and its resource type.</p>
@@ -881,7 +881,7 @@ Constructs ResourceIdentifier from required parameters
 #### `newResourceIdentifier'`
 
 ``` purescript
-newResourceIdentifier' :: ({ "ResourceArn" :: NullOrUndefined (ResourceArn), "ResourceType" :: NullOrUndefined (ResourceType) } -> { "ResourceArn" :: NullOrUndefined (ResourceArn), "ResourceType" :: NullOrUndefined (ResourceType) }) -> ResourceIdentifier
+newResourceIdentifier' :: ({ "ResourceArn" :: Maybe (ResourceArn), "ResourceType" :: Maybe (ResourceType) } -> { "ResourceArn" :: Maybe (ResourceArn), "ResourceType" :: Maybe (ResourceType) }) -> ResourceIdentifier
 ```
 
 Constructs ResourceIdentifier's fields from required parameters
@@ -956,7 +956,7 @@ Encode ResourceType
 
 ``` purescript
 newtype SearchResourcesInput
-  = SearchResourcesInput { "ResourceQuery" :: ResourceQuery, "MaxResults" :: NullOrUndefined (MaxResults), "NextToken" :: NullOrUndefined (NextToken) }
+  = SearchResourcesInput { "ResourceQuery" :: ResourceQuery, "MaxResults" :: Maybe (MaxResults), "NextToken" :: Maybe (NextToken) }
 ```
 
 ##### Instances
@@ -979,7 +979,7 @@ Constructs SearchResourcesInput from required parameters
 #### `newSearchResourcesInput'`
 
 ``` purescript
-newSearchResourcesInput' :: ResourceQuery -> ({ "ResourceQuery" :: ResourceQuery, "MaxResults" :: NullOrUndefined (MaxResults), "NextToken" :: NullOrUndefined (NextToken) } -> { "ResourceQuery" :: ResourceQuery, "MaxResults" :: NullOrUndefined (MaxResults), "NextToken" :: NullOrUndefined (NextToken) }) -> SearchResourcesInput
+newSearchResourcesInput' :: ResourceQuery -> ({ "ResourceQuery" :: ResourceQuery, "MaxResults" :: Maybe (MaxResults), "NextToken" :: Maybe (NextToken) } -> { "ResourceQuery" :: ResourceQuery, "MaxResults" :: Maybe (MaxResults), "NextToken" :: Maybe (NextToken) }) -> SearchResourcesInput
 ```
 
 Constructs SearchResourcesInput's fields from required parameters
@@ -988,7 +988,7 @@ Constructs SearchResourcesInput's fields from required parameters
 
 ``` purescript
 newtype SearchResourcesOutput
-  = SearchResourcesOutput { "ResourceIdentifiers" :: NullOrUndefined (ResourceIdentifierList), "NextToken" :: NullOrUndefined (NextToken) }
+  = SearchResourcesOutput { "ResourceIdentifiers" :: Maybe (ResourceIdentifierList), "NextToken" :: Maybe (NextToken) }
 ```
 
 ##### Instances
@@ -1011,7 +1011,7 @@ Constructs SearchResourcesOutput from required parameters
 #### `newSearchResourcesOutput'`
 
 ``` purescript
-newSearchResourcesOutput' :: ({ "ResourceIdentifiers" :: NullOrUndefined (ResourceIdentifierList), "NextToken" :: NullOrUndefined (NextToken) } -> { "ResourceIdentifiers" :: NullOrUndefined (ResourceIdentifierList), "NextToken" :: NullOrUndefined (NextToken) }) -> SearchResourcesOutput
+newSearchResourcesOutput' :: ({ "ResourceIdentifiers" :: Maybe (ResourceIdentifierList), "NextToken" :: Maybe (NextToken) } -> { "ResourceIdentifiers" :: Maybe (ResourceIdentifierList), "NextToken" :: Maybe (NextToken) }) -> SearchResourcesOutput
 ```
 
 Constructs SearchResourcesOutput's fields from required parameters
@@ -1084,7 +1084,7 @@ Encode TagKeyList
 
 ``` purescript
 newtype TagOutput
-  = TagOutput { "Arn" :: NullOrUndefined (GroupArn), "Tags" :: NullOrUndefined (Tags) }
+  = TagOutput { "Arn" :: Maybe (GroupArn), "Tags" :: Maybe (Tags) }
 ```
 
 ##### Instances
@@ -1107,7 +1107,7 @@ Constructs TagOutput from required parameters
 #### `newTagOutput'`
 
 ``` purescript
-newTagOutput' :: ({ "Arn" :: NullOrUndefined (GroupArn), "Tags" :: NullOrUndefined (Tags) } -> { "Arn" :: NullOrUndefined (GroupArn), "Tags" :: NullOrUndefined (Tags) }) -> TagOutput
+newTagOutput' :: ({ "Arn" :: Maybe (GroupArn), "Tags" :: Maybe (Tags) } -> { "Arn" :: Maybe (GroupArn), "Tags" :: Maybe (Tags) }) -> TagOutput
 ```
 
 Constructs TagOutput's fields from required parameters
@@ -1148,7 +1148,7 @@ Encode Tags
 
 ``` purescript
 newtype TooManyRequestsException
-  = TooManyRequestsException { "Message" :: NullOrUndefined (ErrorMessage) }
+  = TooManyRequestsException { "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>The caller has exceeded throttling limits.</p>
@@ -1173,7 +1173,7 @@ Constructs TooManyRequestsException from required parameters
 #### `newTooManyRequestsException'`
 
 ``` purescript
-newTooManyRequestsException' :: ({ "Message" :: NullOrUndefined (ErrorMessage) } -> { "Message" :: NullOrUndefined (ErrorMessage) }) -> TooManyRequestsException
+newTooManyRequestsException' :: ({ "Message" :: Maybe (ErrorMessage) } -> { "Message" :: Maybe (ErrorMessage) }) -> TooManyRequestsException
 ```
 
 Constructs TooManyRequestsException's fields from required parameters
@@ -1182,7 +1182,7 @@ Constructs TooManyRequestsException's fields from required parameters
 
 ``` purescript
 newtype UnauthorizedException
-  = UnauthorizedException { "Message" :: NullOrUndefined (ErrorMessage) }
+  = UnauthorizedException { "Message" :: Maybe (ErrorMessage) }
 ```
 
 <p>The request has not been applied because it lacks valid authentication credentials for the target resource.</p>
@@ -1207,7 +1207,7 @@ Constructs UnauthorizedException from required parameters
 #### `newUnauthorizedException'`
 
 ``` purescript
-newUnauthorizedException' :: ({ "Message" :: NullOrUndefined (ErrorMessage) } -> { "Message" :: NullOrUndefined (ErrorMessage) }) -> UnauthorizedException
+newUnauthorizedException' :: ({ "Message" :: Maybe (ErrorMessage) } -> { "Message" :: Maybe (ErrorMessage) }) -> UnauthorizedException
 ```
 
 Constructs UnauthorizedException's fields from required parameters
@@ -1248,7 +1248,7 @@ Constructs UntagInput's fields from required parameters
 
 ``` purescript
 newtype UntagOutput
-  = UntagOutput { "Arn" :: NullOrUndefined (GroupArn), "Keys" :: NullOrUndefined (TagKeyList) }
+  = UntagOutput { "Arn" :: Maybe (GroupArn), "Keys" :: Maybe (TagKeyList) }
 ```
 
 ##### Instances
@@ -1271,7 +1271,7 @@ Constructs UntagOutput from required parameters
 #### `newUntagOutput'`
 
 ``` purescript
-newUntagOutput' :: ({ "Arn" :: NullOrUndefined (GroupArn), "Keys" :: NullOrUndefined (TagKeyList) } -> { "Arn" :: NullOrUndefined (GroupArn), "Keys" :: NullOrUndefined (TagKeyList) }) -> UntagOutput
+newUntagOutput' :: ({ "Arn" :: Maybe (GroupArn), "Keys" :: Maybe (TagKeyList) } -> { "Arn" :: Maybe (GroupArn), "Keys" :: Maybe (TagKeyList) }) -> UntagOutput
 ```
 
 Constructs UntagOutput's fields from required parameters
@@ -1280,7 +1280,7 @@ Constructs UntagOutput's fields from required parameters
 
 ``` purescript
 newtype UpdateGroupInput
-  = UpdateGroupInput { "GroupName" :: GroupName, "Description" :: NullOrUndefined (GroupDescription) }
+  = UpdateGroupInput { "GroupName" :: GroupName, "Description" :: Maybe (GroupDescription) }
 ```
 
 ##### Instances
@@ -1303,7 +1303,7 @@ Constructs UpdateGroupInput from required parameters
 #### `newUpdateGroupInput'`
 
 ``` purescript
-newUpdateGroupInput' :: GroupName -> ({ "GroupName" :: GroupName, "Description" :: NullOrUndefined (GroupDescription) } -> { "GroupName" :: GroupName, "Description" :: NullOrUndefined (GroupDescription) }) -> UpdateGroupInput
+newUpdateGroupInput' :: GroupName -> ({ "GroupName" :: GroupName, "Description" :: Maybe (GroupDescription) } -> { "GroupName" :: GroupName, "Description" :: Maybe (GroupDescription) }) -> UpdateGroupInput
 ```
 
 Constructs UpdateGroupInput's fields from required parameters
@@ -1312,7 +1312,7 @@ Constructs UpdateGroupInput's fields from required parameters
 
 ``` purescript
 newtype UpdateGroupOutput
-  = UpdateGroupOutput { "Group" :: NullOrUndefined (Group) }
+  = UpdateGroupOutput { "Group" :: Maybe (Group) }
 ```
 
 ##### Instances
@@ -1335,7 +1335,7 @@ Constructs UpdateGroupOutput from required parameters
 #### `newUpdateGroupOutput'`
 
 ``` purescript
-newUpdateGroupOutput' :: ({ "Group" :: NullOrUndefined (Group) } -> { "Group" :: NullOrUndefined (Group) }) -> UpdateGroupOutput
+newUpdateGroupOutput' :: ({ "Group" :: Maybe (Group) } -> { "Group" :: Maybe (Group) }) -> UpdateGroupOutput
 ```
 
 Constructs UpdateGroupOutput's fields from required parameters
@@ -1376,7 +1376,7 @@ Constructs UpdateGroupQueryInput's fields from required parameters
 
 ``` purescript
 newtype UpdateGroupQueryOutput
-  = UpdateGroupQueryOutput { "GroupQuery" :: NullOrUndefined (GroupQuery) }
+  = UpdateGroupQueryOutput { "GroupQuery" :: Maybe (GroupQuery) }
 ```
 
 ##### Instances
@@ -1399,7 +1399,7 @@ Constructs UpdateGroupQueryOutput from required parameters
 #### `newUpdateGroupQueryOutput'`
 
 ``` purescript
-newUpdateGroupQueryOutput' :: ({ "GroupQuery" :: NullOrUndefined (GroupQuery) } -> { "GroupQuery" :: NullOrUndefined (GroupQuery) }) -> UpdateGroupQueryOutput
+newUpdateGroupQueryOutput' :: ({ "GroupQuery" :: Maybe (GroupQuery) } -> { "GroupQuery" :: Maybe (GroupQuery) }) -> UpdateGroupQueryOutput
 ```
 
 Constructs UpdateGroupQueryOutput's fields from required parameters
